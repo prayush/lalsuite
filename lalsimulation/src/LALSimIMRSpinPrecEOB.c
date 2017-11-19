@@ -3871,7 +3871,6 @@ int XLALSimIMRSpinEOBWaveformAll(
     XLALDestroyREAL8Vector( sigReHi );
     XLALDestroyREAL8Vector( sigImHi );
     XLALAdaptiveRungeKuttaFree(integrator);
-    XLALDestroyREAL8Array( dynamics );
     XLALDestroyREAL8Vector( Alpha );
     XLALDestroyREAL8Vector( Beta );
     XLALDestroyREAL8Vector( AlphaHi );
@@ -3893,13 +3892,14 @@ int XLALSimIMRSpinEOBWaveformAll(
   /* FIXME: Temporary code to convert REAL8Array to REAL8Vector because SWIG
    *        doesn't seem to like REAL8Array */
   REAL8Vector *tmp_vec;
-  tmp_vec = XLALCreateREAL8Vector(dynamicsHi->dimLength->data[0] * dynamicsHi->dimLength->data[1]);
+  tmp_vec = XLALCreateREAL8Vector(dynamics->dimLength->data[0] * dynamics->dimLength->data[1]);
   UINT4 tmp_idx_ii;
   for (tmp_idx_ii=0; tmp_idx_ii < tmp_vec->length; tmp_idx_ii++)
   {
-      tmp_vec->data[tmp_idx_ii] = dynamicsHi->data[tmp_idx_ii];
+      tmp_vec->data[tmp_idx_ii] = dynamics->data[tmp_idx_ii];
   }
   *dynHi = tmp_vec;
+    XLALDestroyREAL8Array( dynamics );
     XLALDestroyREAL8Array( dynamicsHi );
     XLALDestroyREAL8Vector( valuesV2 );
     if (dynamicsV2 != NULL){
