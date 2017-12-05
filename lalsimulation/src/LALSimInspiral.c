@@ -271,6 +271,7 @@ static double fixReferenceFrequency(const double f_ref, const double f_min, cons
         case IMRPhenomP:
         case IMRPhenomPv2:
         case NRSur4d2s:
+        case NRSur7dq2:
             return f_min;
         default:
             break;
