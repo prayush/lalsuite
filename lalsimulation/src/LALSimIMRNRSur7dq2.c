@@ -74,7 +74,7 @@ static const double NRSUR7DQ2_Q_MIN = 0.999;
 static const double NRSUR7DQ2_Q_MAX = 2.001;
 static const double NRSUR7DQ2_CHI_MAX = 0.801;
 
-static const int NRSUR7DQ2_LMAX = 4;
+static const int NRSUR7DQ2_LMAX = 2;
 
 // Surrogate model data, in LAL_DATA_PATH. File available in lalsuite-extra or at
 // https://www.black-holes.org/surrogates
